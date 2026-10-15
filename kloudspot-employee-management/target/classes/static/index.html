@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Management</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div><h1>Employee Management</h1><p>Manage your team in one place</p></div><button id="addBtn">+ Add Employee</button></header>
+<main>
+<section class="stats"><article><span>Total Employees</span><strong id="total">0</strong></article><article><span>Active</span><strong id="active">0</strong></article><article><span>Inactive</span><strong id="inactive">0</strong></article></section>
+<section class="panel">
+<div class="filters"><input id="search" placeholder="Search name or email"><select id="department"><option value="">All departments</option><option>Engineering</option><option>Human Resources</option><option>Finance</option><option>Sales</option><option>Operations</option><option>IT</option></select><select id="status"><option value="">All statuses</option><option>Active</option><option>Inactive</option></select><button id="resetBtn" class="secondary">Reset</button></div>
+<div class="table-wrap"><table><thead><tr><th>Employee</th><th>Email</th><th>Department</th><th>Designation</th><th>Joining Date</th><th>Salary</th><th>Status</th><th>Actions</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="pagination"><span id="pageInfo">Page 1</span><div><button id="prev" class="secondary">Previous</button><button id="next" class="secondary">Next</button></div></div>
+</section>
+</main>
+<dialog id="employeeDialog"><form id="employeeForm">
+<div class="dialog-head"><h2 id="formTitle">Add Employee</h2><button type="button" id="closeBtn" class="icon-btn">×</button></div>
+<input type="hidden" id="id">
+<div class="form-grid">
+<label>Employee ID<input id="employeeId" required></label>
+<label>Full Name<input id="fullName" required></label>
+<label>Email Address<input id="email" type="email" required></label>
+<label>Phone Number<input id="phoneNumber" required pattern="[0-9+() -]{7,20}"></label>
+<label>Department<select id="formDepartment" required><option value="">Select department</option><option>Engineering</option><option>Human Resources</option><option>Finance</option><option>Sales</option><option>Operations</option><option>IT</option></select></label>
+<label>Designation<input id="designation" required></label>
+<label>Date of Joining<input id="dateOfJoining" type="date" required></label>
+<label>Salary<input id="salary" type="number" min="0" step="0.01" required></label>
+<label>Employment Status<select id="employmentStatus" required><option>Active</option><option>Inactive</option></select></label>
+</div>
+<div id="error" role="alert"></div><div class="form-actions"><button type="button" id="cancelBtn" class="secondary">Cancel</button><button type="submit" id="saveBtn">Save Employee</button></div>
+</form></dialog>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
